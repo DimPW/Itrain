@@ -21,7 +21,7 @@ class _introState extends State<intro> {
         title: "Buy",
         description:
         "Buy Bitcoin and cryptocurrencies with VISA and MasterVard right in the App",
-        image: "assets/2.svg"),
+        image: "assets/"),
     SliderPage(
         title: "Sell",
         description:

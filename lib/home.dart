@@ -1,76 +1,102 @@
 import 'package:flutter/material.dart';
-import 'package:itrans/history.dart';
+import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
+import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
+import 'package:itrans/Detailhome.dart';
 import 'package:itrans/profile.dart';
-import 'package:itrans/Detailticket.dart';
 import 'package:itrans/ticket.dart';
+import 'package:itrans/history.dart';
+
 
 class home extends StatefulWidget {
-  const home({Key? key}) : super(key: key);
-
   @override
-  State<home> createState() => _homeState();
+  _homeState createState() => _homeState();
 }
 
-class _homeState extends State<home>
-    with SingleTickerProviderStateMixin {
-  late TabController _controller;
-  int _selectedIndex = 0;
-
-  List<Widget> list = [
-    Tab(icon: Icon(Icons.home,color: Color.fromARGB(128, 0, 255, 203),)),
-    Tab(icon: Icon(Icons.history,color: Color.fromARGB(128, 0, 255, 203))),
-    Tab(icon: Icon(Icons.person,color: Color.fromARGB(128, 0, 255, 203))),
+class _homeState extends State<home> {
+  int currentPage = 0;
+  final List<Widget> _pages = [
+    Homepage(),
+    ticket(),
+    history(),
+    profile(),
   ];
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller = TabController(length: list.length, vsync: this);
-
-    _controller.addListener(() {
-      setState(() {
-        _selectedIndex = _controller.index;
-      });
-      print("Selected Index: " + _controller.index.toString());
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 150,
-          flexibleSpace: Container(
-            child: Image.asset("assets/premier_league_logo.png",width: 200,height: 150,),
-          ),
-          backgroundColor: Colors.white,
-          bottom: TabBar(
-            indicatorPadding: const EdgeInsets.all(5),
-            indicator: BoxDecoration(
-              border: Border.all(color: Color.fromARGB(128, 0, 255, 203), width: 5),
-              borderRadius: BorderRadius.circular(25),
-              color: Colors.white,
-            ),
-            onTap: (index) {},
-            controller: _controller,
-            tabs: list,
-          ),
-          title : Text('Liga Inggris'),
-        ),
-        body: TabBarView(
-          controller: _controller,
-          children: [
-            history(),
-            ticket(),
-            profile(),
+    final size = MediaQuery.of(context).size;
+    final viewPadding = MediaQuery.of(context).viewPadding;
+    double barHeight;
+    double barHeightWithNotch = 67;
+    double arcHeightWithNotch = 67;
 
+    if (size.height > 700) {
+      barHeight = 70;
+    } else {
+      barHeight = size.height * 0.1;
+    }
 
-          ],
-        ),
+    if (viewPadding.bottom > 0) {
+      barHeightWithNotch = (size.height * 0.07) + viewPadding.bottom;
+      arcHeightWithNotch = (size.height * 0.075) + viewPadding.bottom;
+    }
+
+    return Scaffold(
+
+      body: _pages[currentPage],
+      bottomNavigationBar: CircleBottomNavigationBar(
+        initialSelection: currentPage,
+        barHeight: viewPadding.bottom > 0 ? barHeightWithNotch : barHeight,
+        arcHeight: viewPadding.bottom > 0 ? arcHeightWithNotch : barHeight,
+        itemTextOff: viewPadding.bottom > 0 ? 0 : 1,
+        itemTextOn: viewPadding.bottom > 0 ? 0 : 1,
+        circleOutline: 15.0,
+        shadowAllowance: 0.0,
+        circleSize: 50.0,
+        blurShadowRadius: 50.0,
+        circleColor: Colors.blue,
+        activeIconColor: Colors.white,
+        inactiveIconColor: Colors.grey,
+        tabs: getTabsData(),
+        onTabChangedListener: (index) => setState(() => currentPage = index),
       ),
     );
   }
 }
+
+class History {
+}
+
+List<TabData> getTabsData() {
+  return [
+    TabData(
+      icon: Icons.home,
+      iconSize: 25.0,
+      title: 'Home',
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    ),
+    TabData(
+      icon: Icons.newspaper,
+      iconSize: 25,
+      title: 'Ticket',
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    ),
+    TabData(
+      icon: Icons.history,
+      iconSize: 25,
+      title: 'History',
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    ),
+    TabData(
+      icon: Icons.person,
+      iconSize: 25,
+      title: 'Profil',
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+    ),
+  ];
+}
+
+

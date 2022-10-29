@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 
-class history extends StatefulWidget {
-  const history({Key? key}) : super(key: key);
+class Homepage extends StatefulWidget {
+  const Homepage({Key? key}) : super(key: key);
 
   @override
-  State<history> createState() => _historyState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _historyState extends State<history> {
+class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
 
-        title: const Text('History',
+        title: const Text('ITrain',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: (35)),),
 
         toolbarHeight: 110,
