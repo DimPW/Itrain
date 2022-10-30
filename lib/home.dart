@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
 import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
-import 'package:itrans/Detailhome.dart';
-import 'package:itrans/profile.dart';
-import 'package:itrans/ticket.dart';
-import 'package:itrans/history.dart';
+import 'package:Itrain/Detailhome.dart';
+import 'package:Itrain/profile.dart';
+import 'package:Itrain/ticket.dart';
+import 'package:Itrain/history.dart';
 
 
 class home extends StatefulWidget {
@@ -63,8 +63,7 @@ class _homeState extends State<home> {
   }
 }
 
-class History {
-}
+
 
 List<TabData> getTabsData() {
   return [

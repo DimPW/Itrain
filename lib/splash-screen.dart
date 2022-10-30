@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itrans/intro.dart';
+import 'package:Itrain/intro.dart';
 import 'package:lottie/lottie.dart';
-import 'package:itrans/home.dart';
+import 'package:Itrain/home.dart';
 
 class splashscreen extends StatefulWidget {
   const splashscreen({Key? key}) : super(key: key);

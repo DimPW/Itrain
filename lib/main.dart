@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:itrans/home.dart';
-import 'package:itrans/splash-screen.dart';
-import 'package:itrans/profile.dart';
-import 'package:itrans/history.dart';
-import 'package:itrans/Detailticket.dart';
+import 'package:Itrain/home.dart';
+import 'package:Itrain/splash-screen.dart';
+import 'package:Itrain/profile.dart';
+import 'package:Itrain/history.dart';
+import 'package:Itrain/Detailticket.dart';
 
 void main() {
   runApp(const MyApp());

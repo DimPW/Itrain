@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:itrans/slider.dart';
-import 'package:itrans/home.dart';
+import 'package:Itrain/slider.dart';
+import 'package:Itrain/home.dart';
 
 class intro extends StatefulWidget {
   @override
