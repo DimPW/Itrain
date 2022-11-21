@@ -1,11 +1,18 @@
+import 'package:Itrain/intro.dart';
+import 'package:Itrain/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'package:itrans/home.dart';
-import 'package:itrans/splash-screen.dart';
-import 'package:itrans/profile.dart';
-import 'package:itrans/history.dart';
-import 'package:itrans/Detailticket.dart';
+import 'package:Itrain/screens/home.dart';
+import 'package:Itrain/screens/splash-screen.dart';
+import 'package:Itrain/screens/profile.dart';
+import 'package:Itrain/screens/history.dart';
+import 'package:Itrain/screens/Detailticket.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 

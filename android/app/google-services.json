@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107243160309",
+    "project_id": "itrain-9f247",
+    "storage_bucket": "itrain-9f247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107243160309:android:742d625aeab5491e01bbbc",
+        "android_client_info": {
+          "package_name": "com.example.itrans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107243160309-h70tgg26phgdh7fee54dpbo58c7v6di4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV4oFjAb2S-VOKXMSfSh3P9b1YPQmWPxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107243160309-h70tgg26phgdh7fee54dpbo58c7v6di4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

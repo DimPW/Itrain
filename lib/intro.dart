@@ -1,8 +1,10 @@
+import 'package:Itrain/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'package:itrans/slider.dart';
-import 'package:itrans/home.dart';
+import 'package:Itrain/slider.dart';
+import 'package:Itrain/screens/home.dart';
 
 class intro extends StatefulWidget {
+
   @override
   _introState createState() => _introState();
 }
@@ -13,20 +15,25 @@ class _introState extends State<intro> {
 
   List<Widget> _pages = [
     SliderPage(
-        title: "Keep",
+        title: "Kereta Cepat",
         description:
-        "Accept cryptocurrencies and digital assets, keep thern here, or send to orthers",
-        image: "assets/1.svg"),
+        "Perjalanan dengan aman dan nyaman menggunakan kereta cepat",
+        image: ""),
     SliderPage(
-        title: "Buy",
+        title: "Pembayaran",
         description:
-        "Buy Bitcoin and cryptocurrencies with VISA and MasterVard right in the App",
-        image: "assets/2.svg"),
+        "Pembayaran elektronik untuk memudahkan user melakukan pembayaran",
+        image: ""),
     SliderPage(
-        title: "Sell",
+        title: "Pembayaran",
         description:
-        "Sell your Bitcoin cryptocurrencies or Change with orthres digital assets or flat money",
-        image: "assets/3.svg"),
+        "Pembayaran elektronik untuk memudahkan user melakukan pembayaran",
+        image: ""),
+    SliderPage(
+        title: "Lokasi",
+        description:
+        "Melihat Lokasi langsung Kereta ",
+        image: ""),
   ];
 
   _onchanged(int index) {
@@ -82,13 +89,34 @@ class _introState extends State<intro> {
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(35)),
                   child: (_currentPage == (_pages.length - 1))
-                      ? Text(
-                    "Get Started",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                      ?
+                  Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: GestureDetector(
 
-                    ),
+                        child: InkWell(
+                           onTap: (){Navigator.push(
+                               context,
+                               MaterialPageRoute(builder: (context) => login())
+                           );},
+                          child: Container(
+                            padding: EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Getting Start',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
                   )
                       : Icon(
                     Icons.navigate_next,
