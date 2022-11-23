@@ -1,4 +1,4 @@
-// import 'package:Itrain/Detailhome.dart';
+
 // import 'package:Itrain/auth/authpage.dart';
 // import 'package:Itrain/login.dart';
 // import 'package:flutter/material.dart';

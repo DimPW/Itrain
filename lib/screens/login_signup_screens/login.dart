@@ -1,28 +1,31 @@
-import 'package:Itrain/screens/login.dart';
+import 'package:Itrain/screens/home_screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class signup extends StatefulWidget {
-
+class login extends StatefulWidget {
 
   @override
-  State<signup> createState() => _signupState();
+  State<login> createState() => _loginState();
 }
 
-class _signupState extends State<signup> {
+class _loginState extends State<login> {
 
   //text controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  Future signIn()async{
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim()
+    );
+  }
 
   @override
   void dispose(){
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
-  }
-
-  Future signUp()async{
-    
   }
 
   @override
@@ -36,13 +39,13 @@ class _signupState extends State<signup> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.android,
+                    Icons.android,
                   size: 120,
                 ),
                 SizedBox(height: 20,),
                 // Hello Again
                 Text(
-                  'Hello There !',
+                  'Hello Again !',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 28,
@@ -51,7 +54,7 @@ class _signupState extends State<signup> {
                 SizedBox(height: 10,),
                 // Welcome
                 Text(
-                  'Register below with your details! ',
+                  'Welcome back, you\'ve been missed!',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -64,20 +67,20 @@ class _signupState extends State<signup> {
                   child: TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
+                     enabledBorder: OutlineInputBorder(
+                       borderSide: BorderSide(color: Colors.white),
+                       borderRadius: BorderRadius.circular(12),
+                     ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.deepPurple),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      hintText: 'Email',
-                      fillColor: Colors.grey[200],
-                      filled: true,
+                        hintText: 'Email',
+                        fillColor: Colors.grey[200],
+                        filled: true,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
                 // Password textfield
                 SizedBox(height: 10,),
                 Padding(
@@ -104,26 +107,31 @@ class _signupState extends State<signup> {
                 // sign in button
                 Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: GestureDetector(
-                      onTap: signUp,
+                      onTap: signIn,
+                      child: InkWell(
+                        onTap: (){Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => home())
+                        );},
                         child: Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Text(
+                        ),
+                        child: Center(
+                          child: Text(
                               'Sign in',
                               style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
                               ),
-                            ),
                           ),
                         ),
-
-                    )
+                      ),
+                    ),
+                  )
                 ),
                 SizedBox(height: 10,),
 
@@ -131,19 +139,18 @@ class _signupState extends State<signup> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:[
-                    Text('Not a member?',style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    ),
-                    GestureDetector(
+                Text('Not a member?',style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+                GestureDetector(
 
-                      child: Text(' Register Now',style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  child: Text(' Register Now',style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-
                   ],
                 ),
               ],

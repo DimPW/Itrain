@@ -1,8 +1,7 @@
 import 'dart:async';
-import 'package:Itrain/screens/home.dart';
-import 'package:Itrain/intro.dart';
+import 'package:Itrain/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'intro_screens/intro_page_1.dart';
+import '../intro_screens/intro_page_1.dart';
 
 
 class splashscreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class _splashscreenState extends State<splashscreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 3), () {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => IntroPage1()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingScreen()));
     });
   }
   @override

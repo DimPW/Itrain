@@ -1,4 +1,4 @@
-import 'package:Itrain/screens/Detailhome.dart';
+import 'package:Itrain/screens/home_screens/Detailhome.dart';
 import 'package:flutter/material.dart';
 import 'package:Itrain/screens/intro_screens/intro_page_1.dart';
 import 'package:Itrain/screens/intro_screens/intro_page_2.dart';

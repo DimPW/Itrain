@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:circle_bottom_navigation_bar/circle_bottom_navigation_bar.dart';
-import 'package:circle_bottom_navigation_bar/widgets/tab_data.dart';
-import 'package:Itrain/screens/Detailhome.dart';
-import 'package:Itrain/screens/profile.dart';
-import 'package:Itrain/ticket.dart';
-import 'package:Itrain/screens/history.dart';
+import 'package:Itrain/screens/home_screens/Detailhome.dart';
+import 'package:Itrain/screens/profile_screens/profile.dart';
+import 'package:Itrain/screens/history_screens/history.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 
 class home extends StatefulWidget {
@@ -16,7 +13,6 @@ class _homeState extends State<home> {
   int currentPage = 0;
   static final List<Widget>_widgetOptions =<Widget> [
     Homepage(),
-    ticket(),
     history(),
     profile()
   ];
@@ -40,7 +36,7 @@ class _homeState extends State<home> {
         showUnselectedLabels: false,
         selectedItemColor: Colors.blue,
         type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.pink,
+        unselectedItemColor: Colors.white,
         items: const [
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
               activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
