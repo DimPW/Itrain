@@ -1,3 +1,4 @@
+import 'package:Itrain/screens/splash_screens/splash-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:Itrain/screens/home_screens/home.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: home(),
+      home: splashscreen(),
     );
   }
 }

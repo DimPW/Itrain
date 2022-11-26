@@ -1,4 +1,5 @@
 import 'package:Itrain/screens/home_screens/Detailhome.dart';
+import 'package:Itrain/screens/login_signup_screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:Itrain/screens/intro_screens/intro_page_1.dart';
 import 'package:Itrain/screens/intro_screens/intro_page_2.dart';
@@ -29,7 +30,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               controller: _controller,
               onPageChanged: (index) {
                 setState(() {
-                  onLastPage = (index == 3);
+                  onLastPage = (index == 2);
                 });
               },
               children: [
@@ -55,7 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     // dot indicators
                     SmoothPageIndicator(
                       controller: _controller,
-                      count: 4,
+                      count: 3,
                       effect: ExpandingDotsEffect(
                         dotHeight: 10,
                         dotWidth: 10,
@@ -73,7 +74,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) {
-                              return Homepage();
+                              return login();
                             }),
                           );
                         },
