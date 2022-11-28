@@ -60,7 +60,7 @@ class _DetailticketWidget extends State<Detailticket> {
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
                           child: Icon(
-                            Icons.flight_takeoff,
+                            Icons.train_outlined,
                             color: Colors.pink,
                           ),
                         ),

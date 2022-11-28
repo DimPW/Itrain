@@ -4,6 +4,7 @@ import 'package:itrans/splash-screen.dart';
 import 'package:itrans/profile.dart';
 import 'package:itrans/history.dart';
 import 'package:itrans/Detailticket.dart';
+import 'package:itrans/Detailhome.dart';
 
 void main() {
   runApp(const MyApp());
